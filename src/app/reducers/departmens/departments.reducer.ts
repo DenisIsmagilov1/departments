@@ -1,11 +1,17 @@
 
 export const departmentsNode = 'departments';
 
+export interface Department {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export interface DepartmentsState {
   loading: boolean;
   error: object;
   data: {
-    departments: object[];
+    departments: Department[];
   };
 }
 

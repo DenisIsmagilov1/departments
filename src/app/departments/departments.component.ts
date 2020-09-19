@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { DepartmentsState } from '../reducers/departmens/departments.reducer';
+import { Department, DepartmentsState } from '../reducers/departmens/departments.reducer';
 import { selectDepartments } from '../reducers/departmens/departments.selectors';
 
 @Component({
@@ -12,6 +12,6 @@ import { selectDepartments } from '../reducers/departmens/departments.selectors'
 export class DepartmentsComponent {
   constructor(private store$: Store<DepartmentsState>) { }
 
-  public departments$: Observable<object[]> = this.store$.pipe(select(selectDepartments));
+  public departments$: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
 
 }
