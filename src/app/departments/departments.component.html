@@ -10,29 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-active">
-        <th scope="row">1</th>
-        <td>Marketing</td>
-        <td>Marketing description</td>
+      <tr *ngFor="let department of departments$ | async; let idx = index" class="table-active">
+        <th scope="row">{{idx + 1}}</th>
+        <td>{{department.name}}</td>
+        <td>{{department.description}}</td>
         <td><button type="button" class="btn btn-info">View</button></td>
         <td><button type="button" class="btn btn-warning">Change</button></td>
-        <td><button type="button" class="btn btn-danger">Danger</button></td>
-      </tr>
-      <tr class="table-default">
-        <th scope="row">1</th>
-        <td>Marketing</td>
-        <td>Marketing description</td>
-        <td><button type="button" class="btn btn-info">View</button></td>
-        <td><button type="button" class="btn btn-warning">Change</button></td>
-        <td><button type="button" class="btn btn-danger">Danger</button></td>
-      </tr>
-      <tr class="table-active">
-        <th scope="row">1</th>
-        <td>Marketing</td>
-        <td>Marketing description</td>
-        <td><button type="button" class="btn btn-info">View</button></td>
-        <td><button type="button" class="btn btn-warning">Change</button></td>
-        <td><button type="button" class="btn btn-danger">Danger</button></td>
+        <td><button type="button" class="btn btn-danger">Delete</button></td>
       </tr>
     </tbody>
   </table>

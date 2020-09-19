@@ -10,6 +10,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { DepartmentsComponent } from './departments/departments.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { MenuComponent } from './menu/menu.component';
+import { AppEffects } from './app.effects';
+
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,13 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictActionImmutability: true,
+        strictStateImmutability: true
+      }
+    }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([])
   ],
