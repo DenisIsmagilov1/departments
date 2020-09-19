@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "departments"
+    }
+  },
+  "defaultProject": "departments",
+  "cli": {
+    "analytics": false
+  }
 }
