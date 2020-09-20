@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AppEffects } from './app.effects';
 
 import { reducers, metaReducers } from './reducers';
+import { EmployeesCreateComponent } from './employees/create/employees.create.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { reducers, metaReducers } from './reducers';
     MenuComponent,
     DepartmentsDetailComponent,
     EmployeesDetailComponent,
-    DepartmentCreateComponent
+    DepartmentCreateComponent,
+    EmployeesCreateComponent
   ],
   imports: [
     BrowserModule,

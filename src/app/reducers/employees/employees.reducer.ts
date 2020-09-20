@@ -42,7 +42,24 @@ export const employeesReducer = (state = initialState, action) => {
           ...state.data,
           employees: newEmployees
         }
-      }
+      };
+    case employeesActionType.create:
+      const newEmployee = {
+        id: Date.now(),
+        firstName: action.payload.firstName,
+        lastName: action.payload.lastName,
+        departmentId: action.payload.departmentId,
+      };
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          employees: [
+            ...state.data.employees,
+            newEmployee
+          ]
+        }
+      };
     default:
       return state;
   }
