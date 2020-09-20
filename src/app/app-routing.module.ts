@@ -7,15 +7,17 @@ import { DepartmentsUpdateComponent } from './departments/update/departments.upd
 import { EmployeesCreateComponent } from './employees/create/employees.create.component';
 import { EmployeesDetailComponent } from './employees/detail/employees.detail.component';
 import { EmployeesComponent } from './employees/list/employees.list.component';
+import { EmployeesUpdateComponent } from './employees/update/employees.update.component';
 
 const routes: Routes = [
-  { path: '', component: DepartmentsComponent },
   { path: 'departments/detail/:id', component: DepartmentsDetailComponent },
   { path: 'departments/create', component: DepartmentCreateComponent },
   { path: 'departments/update/:id', component: DepartmentsUpdateComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'employees/detail/:id', component: EmployeesDetailComponent },
   { path: 'employees/create', component: EmployeesCreateComponent },
+  { path: 'employees/update/:id', component: EmployeesUpdateComponent },
+  { path: '', component: DepartmentsComponent },
 ];
 
 @NgModule({

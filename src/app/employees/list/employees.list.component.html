@@ -15,7 +15,8 @@
           <div class="btn-group d-flex justify-content-between" role="group" aria-label="Basic example">
             <a [routerLink]="['/employees/detail',employee.id]"><button type="button"
                 class="btn btn-info">View</button></a>
-            <button type="button" class="btn btn-warning">Update</button>
+            <a [routerLink]="['/employees/update',employee.id]"><button type="button"
+                class="btn btn-warning">Update</button></a>
           </div>
         </div>
       </div>

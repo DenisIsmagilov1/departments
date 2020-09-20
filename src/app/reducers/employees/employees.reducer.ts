@@ -60,6 +60,19 @@ export const employeesReducer = (state = initialState, action) => {
           ]
         }
       };
+    case employeesActionType.update:
+      const index = state.data.employees.findIndex(item => item.id === action.payload.id);
+      const updatedEmployees = [
+        ...state.data.employees.slice(0, index),
+        action.payload,
+        ...state.data.employees.slice(index + 1)];
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          employees: updatedEmployees
+        }
+      };
     default:
       return state;
   }
