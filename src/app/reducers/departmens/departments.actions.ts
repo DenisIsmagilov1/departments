@@ -1,7 +1,8 @@
 import { Action } from '@ngrx/store';
 
 export enum departmentActionsType {
-  delete = 'DEPARTMENT_DELETE'
+  delete = 'DEPARTMENT_DELETE',
+  create = 'DEPARTMENT_CREATE'
 }
 
 export class DepartmentDeleteAction implements Action {
@@ -11,4 +12,12 @@ export class DepartmentDeleteAction implements Action {
   }) { }
 }
 
-export type DepartmentActions = DepartmentDeleteAction;
+export class DepartmentCreateAction implements Action {
+  readonly type = departmentActionsType.create;
+  constructor(public payload: {
+    name: string,
+    description: string
+  }) { }
+}
+
+export type DepartmentActions = DepartmentDeleteAction | DepartmentCreateAction;

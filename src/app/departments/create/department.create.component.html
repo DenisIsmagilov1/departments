@@ -1,0 +1,11 @@
+<div class="departments__create">
+  <h1>Department create</h1>
+  <form class="create__form col-6" action="">
+    <label for="department-name">Name</label>
+    <input [(ngModel)]="name" name="name" id="department-name" type="text" placeholder="Enter department name">
+    <label for="department-name">Description</label>
+    <textarea [(ngModel)]="description" name="description" id="department-name"
+      placeholder="Enter department description"></textarea>
+    <input (click)="createDepartments()" type="submit" value="Create">
+  </form>
+</div>

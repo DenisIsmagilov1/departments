@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,12 +10,13 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { DepartmentsComponent } from './departments/list/departments.list.component';
 import { DepartmentsDetailComponent } from './departments/detail/departments.detail.component';
+import { DepartmentCreateComponent } from './departments/create/department.create.component';
 import { EmployeesComponent } from './employees/list/employees.list.component';
+import { EmployeesDetailComponent } from './employees/detail/employees.detail.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppEffects } from './app.effects';
 
 import { reducers, metaReducers } from './reducers';
-import { EmployeesDetailComponent } from './employees/detail/employees.detail.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { EmployeesDetailComponent } from './employees/detail/employees.detail.co
     EmployeesComponent,
     MenuComponent,
     DepartmentsDetailComponent,
-    EmployeesDetailComponent
+    EmployeesDetailComponent,
+    DepartmentCreateComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
       metaReducers,

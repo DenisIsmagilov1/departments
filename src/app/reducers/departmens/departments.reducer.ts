@@ -42,6 +42,22 @@ export const departmentsReducer = (state = initialState, action) => {
           departments: newDepartments
         }
       };
+    case departmentActionsType.create:
+      const newDepartment = {
+        id: Date.now(),
+        name: action.payload.name,
+        description: action.payload.description
+      };
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          departments: [
+            ...state.data.departments,
+            newDepartment
+          ]
+        }
+      };
     default:
       return state;
   }
