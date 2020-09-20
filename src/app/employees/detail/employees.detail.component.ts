@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { EmployeeDeleteAction } from 'src/app/reducers/employees/employees.actions';
 
 import { Employees, EmployeesState } from 'src/app/reducers/employees/employees.reducer';
 import { selectEmployees } from 'src/app/reducers/employees/employees.selectors';
@@ -15,6 +16,7 @@ import { selectEmployees } from 'src/app/reducers/employees/employees.selectors'
 export class EmployeesDetailComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private store$: Store<EmployeesState>
   ) { }
@@ -34,6 +36,13 @@ export class EmployeesDetailComponent implements OnInit {
       this.employee$ = res[res.findIndex(item => item.id === this.id$)];
     });
 
+  }
+
+  deleteEmployee(id) {
+    this.store$.dispatch(new EmployeeDeleteAction({
+      employeeId: id
+    }));
+    this.router.navigate(['/employees']);
   }
 
 }

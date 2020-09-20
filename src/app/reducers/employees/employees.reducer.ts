@@ -1,3 +1,5 @@
+import { employeesActionType } from './employees.actions';
+
 export const employeesNode = 'employees';
 
 export interface Employees {
@@ -32,6 +34,15 @@ const initialState = {
 
 export const employeesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case employeesActionType.delete:
+      const newEmployees = state.data.employees.filter(item => item.id !== action.payload.employeeId);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          employees: newEmployees
+        }
+      }
     default:
       return state;
   }

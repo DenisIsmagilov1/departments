@@ -5,7 +5,7 @@
     <p>Department id: {{employee$.departmentId}}</p>
     <div class="btn-group d-flex" role="group" aria-label="Basic example" style="max-width: 20rem;">
       <button type="button" class="btn btn-warning">Update</button>
-      <button type="button" class="btn btn-danger">Delete</button>
+      <button (click)="deleteEmployee(employee$.id)" type="button" class="btn btn-danger">Delete</button>
     </div>
   </div>
   <ng-template #ngNotFound>
