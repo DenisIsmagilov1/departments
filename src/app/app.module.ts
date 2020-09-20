@@ -18,6 +18,7 @@ import { AppEffects } from './app.effects';
 
 import { reducers, metaReducers } from './reducers';
 import { EmployeesCreateComponent } from './employees/create/employees.create.component';
+import { DepartmentsUpdateComponent } from './departments/update/departments.update.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EmployeesCreateComponent } from './employees/create/employees.create.co
     DepartmentsDetailComponent,
     EmployeesDetailComponent,
     DepartmentCreateComponent,
-    EmployeesCreateComponent
+    EmployeesCreateComponent,
+    DepartmentsUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -58,6 +58,19 @@ export const departmentsReducer = (state = initialState, action) => {
           ]
         }
       };
+    case departmentActionsType.update:
+      const index = state.data.departments.findIndex(item => item.id === action.payload.id);
+      const updatedDepartments = [
+        ...state.data.departments.slice(0, index),
+        action.payload,
+        ...state.data.departments.slice(index + 1)];
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          departments: updatedDepartments
+        }
+      };
     default:
       return state;
   }

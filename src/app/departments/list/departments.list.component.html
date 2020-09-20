@@ -17,7 +17,8 @@
         <td>{{department.description}}</td>
         <td><a [routerLink]="['departments/detail',department.id]"><button type="button"
               class="btn btn-info">View</button></a></td>
-        <td><button type="button" class="btn btn-warning">Change</button></td>
+        <td><a [routerLink]="['/departments/update', department.id]"><button type="button"
+              class="btn btn-warning">Update</button></a></td>
         <td><button (click)="deleteDepartment(department.id)" type="button" class="btn btn-danger">Delete</button></td>
       </tr>
     </tbody>

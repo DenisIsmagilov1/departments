@@ -4,7 +4,8 @@
     <h2>{{department$.name}}</h2>
     <p>{{department$.description}}</p>
     <div class="btn-group d-flex" role="group" aria-label="Basic example" style="max-width: 20rem;">
-      <button type="button" class="btn btn-warning">Update</button>
+      <a [routerLink]="['/departments/update', department$.id]"><button type="button"
+          class="btn btn-warning">Update</button></a>
       <button (click)="deleteDepartment(id$)" type="button" class="btn btn-danger">Delete</button>
     </div>
   </div>
