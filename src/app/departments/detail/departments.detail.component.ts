@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map, switchMap, filter } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
+
 import { Department, DepartmentsState } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
 
@@ -19,7 +20,6 @@ export class DepartmentsDetailComponent implements OnInit {
   ) { }
 
   public id$: number;
-  public tmp$;
   public department$;
   public departments$: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
 

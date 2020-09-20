@@ -9,11 +9,12 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { DepartmentsComponent } from './departments/list/departments.list.component';
 import { DepartmentsDetailComponent } from './departments/detail/departments.detail.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesComponent } from './employees/list/employees.list.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppEffects } from './app.effects';
 
 import { reducers, metaReducers } from './reducers';
+import { EmployeesDetailComponent } from './employees/detail/employees.detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { reducers, metaReducers } from './reducers';
     DepartmentsComponent,
     EmployeesComponent,
     MenuComponent,
-    DepartmentsDetailComponent
+    DepartmentsDetailComponent,
+    EmployeesDetailComponent
   ],
   imports: [
     BrowserModule,
