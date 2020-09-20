@@ -1,0 +1,14 @@
+<div class="departments__detail">
+  <h1>Detail</h1>
+  <div *ngIf="department$; else ngNotFound">
+    <h2>{{department$.name}}</h2>
+    <p>{{department$.description}}</p>
+    <div class="btn-group d-flex" role="group" aria-label="Basic example" style="max-width: 20rem;">
+      <button type="button" class="btn btn-warning">Update</button>
+      <button type="button" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+  <ng-template #ngNotFound>
+    <p>Departmant with id = {{id$}} not found!</p>
+  </ng-template>
+</div>
