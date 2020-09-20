@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { DepartmentDeleteAction } from 'src/app/reducers/departmens/departments.actions';
 
 import { Department, DepartmentsState } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
@@ -15,6 +16,7 @@ import { selectDepartments } from 'src/app/reducers/departmens/departments.selec
 export class DepartmentsDetailComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private store$: Store<DepartmentsState>
   ) { }
@@ -34,6 +36,11 @@ export class DepartmentsDetailComponent implements OnInit {
       this.department$ = res[res.findIndex(item => item.id === this.id$)];
     });
 
+  }
+
+  deleteDepartment(id) {
+    this.store$.dispatch(new DepartmentDeleteAction({ departmentId: id }));
+    this.router.navigate(['']);
   }
 
 }

@@ -1,3 +1,4 @@
+import { departmentActionsType } from './departments.actions';
 
 export const departmentsNode = 'departments';
 
@@ -32,6 +33,15 @@ const initialState: DepartmentsState = {
 
 export const departmentsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case departmentActionsType.delete:
+      let newDepartments = state.data.departments.filter(item => item.id !== action.payload.departmentId);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          departments: newDepartments
+        }
+      };
     default:
       return state;
   }
