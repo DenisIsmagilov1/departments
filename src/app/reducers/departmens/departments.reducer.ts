@@ -1,4 +1,4 @@
-import { departmentActionsType } from './departments.actions';
+import { types } from './departments.actions';
 
 export const departmentsNode = 'departments';
 
@@ -17,24 +17,46 @@ export interface DepartmentsState {
 }
 
 const initialState: DepartmentsState = {
-  loading: true,
+  loading: false,
   error: null,
   data: {
-    departments: [
-      { id: 1, name: 'Marketing', description: 'Marketing description' },
-      { id: 2, name: 'Support', description: 'Support description' },
-      { id: 3, name: 'Accounting', description: 'Accounting description' },
-      { id: 4, name: 'General', description: 'General description' },
-      { id: 5, name: 'Administrative', description: 'Administrative description' },
-      { id: 6, name: 'Frontend', description: 'Frontend description' },
-    ]
+    departments: []
   }
 };
 
 export const departmentsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case departmentActionsType.delete:
-      let newDepartments = state.data.departments.filter(item => item.id !== action.payload.departmentId);
+    case types.getDepartments:
+      return {
+        loading: true,
+        error: null,
+        data: {
+          ...state.data,
+          departments: []
+        }
+      };
+    case types.getDepartmentsSuccess:
+      return {
+        loading: false,
+        error: null,
+        data: {
+          ...state.data,
+          departments: action.payload.departments
+        }
+      };
+    case types.createDepartmentSuccess:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          departments: [
+            ...state.data.departments,
+            action.payload
+          ]
+        }
+      };
+    case types.deleteDepartmentSuccess:
+      const newDepartments = state.data.departments.filter(item => item.id !== action.payload.departmentId);
       return {
         ...state,
         data: {
@@ -42,23 +64,7 @@ export const departmentsReducer = (state = initialState, action) => {
           departments: newDepartments
         }
       };
-    case departmentActionsType.create:
-      const newDepartment = {
-        id: Date.now(),
-        name: action.payload.name,
-        description: action.payload.description
-      };
-      return {
-        ...state,
-        data: {
-          ...state.data,
-          departments: [
-            ...state.data.departments,
-            newDepartment
-          ]
-        }
-      };
-    case departmentActionsType.update:
+    case types.updateDepartmentSuccess:
       const index = state.data.departments.findIndex(item => item.id === action.payload.id);
       const updatedDepartments = [
         ...state.data.departments.slice(0, index),

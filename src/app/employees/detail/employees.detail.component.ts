@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { EmployeeDeleteAction } from 'src/app/reducers/employees/employees.actions';
+import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 
 import { Employees, EmployeesState } from 'src/app/reducers/employees/employees.reducer';
 import { selectEmployees } from 'src/app/reducers/employees/employees.selectors';
@@ -39,7 +39,7 @@ export class EmployeesDetailComponent implements OnInit {
   }
 
   deleteEmployee(id) {
-    this.store$.dispatch(new EmployeeDeleteAction({
+    this.store$.dispatch(new employeeActions.DeleteEmployee({
       employeeId: id
     }));
     this.router.navigate(['/employees']);

@@ -1,4 +1,4 @@
-import { employeesActionType } from './employees.actions';
+import { types } from './employees.actions';
 
 export const employeesNode = 'employees';
 
@@ -34,7 +34,25 @@ const initialState = {
 
 export const employeesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case employeesActionType.delete:
+    case types.getEmployees:
+      return {
+        loading: true,
+        error: null,
+        data: {
+          ...state.data,
+          employees: []
+        }
+      };
+    case types.getEmployeesSuccess:
+      return {
+        loading: false,
+        error: null,
+        data: {
+          ...state.data,
+          employees: action.payload.employees
+        }
+      };
+    case types.deleteEmployeeSuccess:
       const newEmployees = state.data.employees.filter(item => item.id !== action.payload.employeeId);
       return {
         ...state,
@@ -43,24 +61,18 @@ export const employeesReducer = (state = initialState, action) => {
           employees: newEmployees
         }
       };
-    case employeesActionType.create:
-      const newEmployee = {
-        id: Date.now(),
-        firstName: action.payload.firstName,
-        lastName: action.payload.lastName,
-        departmentId: action.payload.departmentId,
-      };
+    case types.createEmployeeSuccess:
       return {
         ...state,
         data: {
           ...state.data,
           employees: [
             ...state.data.employees,
-            newEmployee
+            action.payload
           ]
         }
       };
-    case employeesActionType.update:
+    case types.updateEmployeeSuccess:
       const index = state.data.employees.findIndex(item => item.id === action.payload.id);
       const updatedEmployees = [
         ...state.data.employees.slice(0, index),

@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Department, DepartmentsState } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
-import { EmployeeCreateAction } from 'src/app/reducers/employees/employees.actions';
+import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 
 @Component({
   selector: 'app-employeescreate',
@@ -19,7 +19,7 @@ export class EmployeesCreateComponent {
   constructor(private store$: Store<DepartmentsState>, private router: Router) { }
 
   createEmployee() {
-    this.store$.dispatch(new EmployeeCreateAction({
+    this.store$.dispatch(new employeeActions.CreateEmployee({
       firstName: this.firstName,
       lastName: this.lastName,
       departmentId: this.departmentId,

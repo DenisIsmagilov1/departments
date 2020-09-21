@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import { EmployeeUpdateAction } from 'src/app/reducers/employees/employees.actions';
+import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 import { switchMap } from 'rxjs/operators';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
 import { Observable } from 'rxjs';
@@ -44,7 +44,7 @@ export class EmployeesUpdateComponent implements OnInit {
   }
 
   updateEmployee() {
-    this.store$.dispatch(new EmployeeUpdateAction({
+    this.store$.dispatch(new employeeActions.UpdateEmployee({
       id: this.id,
       firstName: this.firstName,
       lastName: this.lastName,

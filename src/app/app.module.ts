@@ -19,6 +19,9 @@ import { EmployeesUpdateComponent } from './employees/update/employees.update.co
 import { MenuComponent } from './menu/menu.component';
 
 import { reducers, metaReducers } from './reducers';
+import { HttpClientModule } from '@angular/common/http';
+import { AppEffects } from './app.effects';
+import { HttpService } from './http.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { reducers, metaReducers } from './reducers';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -45,9 +49,9 @@ import { reducers, metaReducers } from './reducers';
       }
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([AppEffects])
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

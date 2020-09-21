@@ -3,14 +3,16 @@ import { Router, Route, ActivatedRoute, ParamMap } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { DepartmentUpdateAction } from 'src/app/reducers/departmens/departments.actions';
+import * as departmentActions from 'src/app/reducers/departmens/departments.actions';
 import { Department, DepartmentsState } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
+import { HttpService } from '../../http.service';
 
 @Component({
   selector: 'app-departmantsupdate',
   templateUrl: './departments.update.component.html',
-  styleUrls: ['./departments.update.component.scss']
+  styleUrls: ['./departments.update.component.scss'],
+  providers: [HttpService]
 })
 export class DepartmentsUpdateComponent implements OnInit {
 
@@ -20,7 +22,11 @@ export class DepartmentsUpdateComponent implements OnInit {
   public department;
   public departments: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
 
-  constructor(private store$: Store<DepartmentsState>, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private store$: Store<DepartmentsState>,
+    private router: Router,
+    private route: ActivatedRoute,
+    private http: HttpService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -38,11 +44,13 @@ export class DepartmentsUpdateComponent implements OnInit {
   }
 
   updateDepartment() {
-    this.store$.dispatch(new DepartmentUpdateAction({
+    const updDepartment = {
       id: this.id,
       name: this.name,
       description: this.description
-    }));
+    };
+
+    this.store$.dispatch(new departmentActions.UpdateDepartment(updDepartment));
 
     this.router.navigate(['']);
   }

@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { DepartmentDeleteAction } from 'src/app/reducers/departmens/departments.actions';
+import * as departmentActions from 'src/app/reducers/departmens/departments.actions';
 
 import { Department, DepartmentsState } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
@@ -39,7 +39,7 @@ export class DepartmentsDetailComponent implements OnInit {
   }
 
   deleteDepartment(id) {
-    this.store$.dispatch(new DepartmentDeleteAction({ departmentId: id }));
+    this.store$.dispatch(new departmentActions.DeleteDepartment({ departmentId: id }));
     this.router.navigate(['']);
   }
 
