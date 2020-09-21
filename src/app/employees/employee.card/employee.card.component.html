@@ -1,5 +1,6 @@
 <div class="card border-secondary ">
-  <div class="card-header">{{department.name}}
+  <div class="card-header">
+    <span *ngIf="department">{{department.name}}</span>
     <button (click)="deleteEmployee(employee.id)" type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true" style="color: red;">&times;</span>
     </button>
