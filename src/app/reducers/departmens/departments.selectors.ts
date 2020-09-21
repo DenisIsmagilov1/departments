@@ -7,3 +7,8 @@ export const selectDepartments = createSelector(
   selectDepartmentsFeature,
   (state: DepartmentsState) => state.data.departments
 );
+
+export const selectDepartmentsLoading = createSelector(
+  selectDepartmentsFeature,
+  (state: DepartmentsState) => state.loading
+);

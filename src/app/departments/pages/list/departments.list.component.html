@@ -1,6 +1,11 @@
 <div class="departments">
   <h1>Departments</h1>
   <a [routerLink]="['departments/create']"><button type="button" class="btn btn-success">Create</button></a>
+  <span *ngIf="isLoading$ | async; else content">laoding</span>
+
+</div>
+
+<ng-template #content>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -23,4 +28,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</ng-template>

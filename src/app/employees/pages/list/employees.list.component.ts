@@ -8,7 +8,7 @@ import { selectDepartments } from 'src/app/reducers/departmens/departments.selec
 import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 
 import { Employees } from '../../../reducers/employees/employees.reducer';
-import { selectEmployees } from '../../../reducers/employees/employees.selectors';
+import { selectEmployees, selectEmployeesLoading } from '../../../reducers/employees/employees.selectors';
 
 @Component({
   selector: 'app-employees',
@@ -19,6 +19,7 @@ export class EmployeesComponent implements OnInit {
   constructor(private store$: Store) { }
   public employees$: Observable<Employees[]> = this.store$.pipe(select(selectEmployees));
   public departments$: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
+  public isLoading$: Observable<boolean> = this.store$.pipe(select(selectEmployeesLoading));
 
   ngOnInit() {
     this.store$.dispatch(new employeeActions.GetEmployees());

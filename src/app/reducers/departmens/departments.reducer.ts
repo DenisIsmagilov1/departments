@@ -28,12 +28,9 @@ export const departmentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.getDepartments:
       return {
+        ...state,
         loading: true,
         error: null,
-        data: {
-          ...state.data,
-          departments: []
-        }
       };
     case types.getDepartmentsSuccess:
       return {

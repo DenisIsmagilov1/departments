@@ -21,14 +21,7 @@ const initialState = {
   loading: true,
   error: null,
   data: {
-    employees: [
-      { id: 1, firstName: 'Denis', lastName: 'Ismagilov', departmentId: 6 },
-      { id: 2, firstName: 'Vadim', lastName: 'Petrov', departmentId: 2 },
-      { id: 3, firstName: 'Vadim', lastName: 'Petrov', departmentId: 3 },
-      { id: 4, firstName: 'Vadim', lastName: 'Petrov', departmentId: 4 },
-      { id: 5, firstName: 'Vadim', lastName: 'Petrov', departmentId: 5 },
-      { id: 6, firstName: 'Vadim', lastName: 'Petrov', departmentId: 2 }
-    ]
+    employees: []
   }
 };
 
@@ -36,12 +29,9 @@ export const employeesReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.getEmployees:
       return {
+        ...state,
         loading: true,
         error: null,
-        data: {
-          ...state.data,
-          employees: []
-        }
       };
     case types.getEmployeesSuccess:
       return {
