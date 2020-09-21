@@ -2,13 +2,15 @@
   <h1>Employee update</h1>
   <form *ngIf="employee; else ngNotFound" class="create__form col-6" action="">
     <label for="employees-name">First name</label>
-    <input [(ngModel)]="firstName" name="firstName" id="employees-name" type="text" placeholder="Enter first name">
+    <input class="form-control" [(ngModel)]="firstName" name="firstName" id="employees-name" type="text"
+      placeholder="Enter first name">
     <label for="employees-name">Last name</label>
-    <input [(ngModel)]="lastName" name="lastName" id="employees-name" type="text" placeholder="Enter last name">
-    <select [(ngModel)]="departmentId" name="departmentId">
+    <input class="form-control" [(ngModel)]="lastName" name="lastName" id="employees-name" type="text"
+      placeholder="Enter last name">
+    <select class="form-control" [(ngModel)]="departmentId" name="departmentId">
       <option *ngFor="let department of departments | async" [value]="department.id">{{department.name}}</option>
     </select>
-    <input (click)="updateEmployee()" type="submit" value="Update">
+    <input class="btn btn-primary" (click)="updateEmployee()" type="submit" value="Update">
   </form>
 
   <ng-template #ngNotFound>

@@ -3,7 +3,7 @@
   <div *ngIf="employee$; else ngNotFound">
     <h2>{{employee$.firstName}} {{employee$.lastName}}</h2>
     <p>Department id: {{employee$.departmentId}}</p>
-    <div class="btn-group d-flex" role="group" aria-label="Basic example" style="max-width: 20rem;">
+    <div role="group" aria-label="Basic example" style="max-width: 20rem;">
       <a [routerLink]="['/employees/update',employee$.id]"><button type="button"
           class="btn btn-warning">Update</button></a>
       <button (click)="deleteEmployee(employee$.id)" type="button" class="btn btn-danger">Delete</button>

@@ -5,13 +5,25 @@ ul {
 
 .menu {
   height: 100%;
+  //position: fixed;
 }
 
 .nav{
+  margin: 0 0 0 5%;
+  transform: translateY(-180px);
 
   &__link {
+    font-size: 20px;
     list-style-type: none;
     margin: 0 0 10px 0;
+
+    a {
+      color: #fff;
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
 
     &:last-child {
       margin: 0;

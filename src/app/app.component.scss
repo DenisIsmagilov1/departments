@@ -1,7 +1,3 @@
-.col-3{
-  padding: 0;
-}
-
 .wrapper {
   height: 100%;
 }
@@ -12,6 +8,11 @@
 }
 
 .content {
-  background-color: #dae5ea;
+  // background-color: #dae5ea;
   padding: 20px;
+}
+
+.left-menu {
+  position: relative;
+  background-color: #7b8a8b;
 }

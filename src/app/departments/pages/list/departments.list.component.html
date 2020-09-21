@@ -1,22 +1,24 @@
 <div class="departments">
   <h1>Departments</h1>
   <a [routerLink]="['departments/create']"><button type="button" class="btn btn-success">Create</button></a>
-  <span *ngIf="isLoading$ | async; else content">laoding</span>
+  <div *ngIf="isLoading$ | async; else content">laoding</div>
 
 </div>
 
 <ng-template #content>
-  <table class="table table-hover">
+  <table class="departments__table table table-hover">
     <thead>
       <tr>
         <th scope="col">№</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let department of departments$ | async; let idx = index" class="table-active">
+      <tr *ngFor="let department of departments$ | async; let idx = index" class="table-default">
         <th scope="row">{{idx + 1}}</th>
         <td>{{department.name}}</td>
         <td>{{department.description}}</td>
