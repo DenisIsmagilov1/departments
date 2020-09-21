@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DepartmentCreateComponent } from './departments/create/department.create.component';
-import { DepartmentsDetailComponent } from './departments/detail/departments.detail.component';
-import { DepartmentsComponent } from './departments/list/departments.list.component';
-import { DepartmentsUpdateComponent } from './departments/update/departments.update.component';
-import { EmployeesCreateComponent } from './employees/create/employees.create.component';
-import { EmployeesDetailComponent } from './employees/detail/employees.detail.component';
-import { EmployeesComponent } from './employees/list/employees.list.component';
-import { EmployeesUpdateComponent } from './employees/update/employees.update.component';
+import { DepartmentCreateComponent } from './departments/pages/create/department.create.component';
+import { DepartmentsDetailComponent } from './departments/pages/detail/departments.detail.component';
+import { DepartmentsComponent } from './departments/pages/list/departments.list.component';
+import { DepartmentsUpdateComponent } from './departments/pages/update/departments.update.component';
+import { EmployeesCreateComponent } from './employees/pages/create/employees.create.component';
+import { EmployeesDetailComponent } from './employees/pages/detail/employees.detail.component';
+import { EmployeesComponent } from './employees/pages/list/employees.list.component';
+import { EmployeesUpdateComponent } from './employees/pages/update/employees.update.component';
 
 const routes: Routes = [
   { path: 'departments/detail/:id', component: DepartmentsDetailComponent },

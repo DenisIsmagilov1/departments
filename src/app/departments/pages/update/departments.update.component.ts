@@ -6,13 +6,11 @@ import { switchMap } from 'rxjs/operators';
 import * as departmentActions from 'src/app/reducers/departmens/departments.actions';
 import { Department, DepartmentsState } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
-import { HttpService } from '../../http.service';
 
 @Component({
   selector: 'app-departmantsupdate',
   templateUrl: './departments.update.component.html',
-  styleUrls: ['./departments.update.component.scss'],
-  providers: [HttpService]
+  styleUrls: ['./departments.update.component.scss']
 })
 export class DepartmentsUpdateComponent implements OnInit {
 
@@ -25,8 +23,7 @@ export class DepartmentsUpdateComponent implements OnInit {
   constructor(
     private store$: Store<DepartmentsState>,
     private router: Router,
-    private route: ActivatedRoute,
-    private http: HttpService) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(

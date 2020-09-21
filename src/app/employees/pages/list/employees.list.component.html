@@ -1,0 +1,9 @@
+<div class="employees">
+  <h1>Employees</h1>
+  <a [routerLink]="['/employees/create']"><button type="button" class="btn btn-success">Create</button></a>
+  <div class="row employees__list">
+    <div *ngFor="let employee of employees$ | async" class="employees__item col-xl-3 col-lg-4 col-md-6 col-sm-12">
+      <app-employeecard [employee]="employee"></app-employeecard>
+    </div>
+  </div>
+</div>
