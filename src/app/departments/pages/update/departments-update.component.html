@@ -1,6 +1,6 @@
 <div class="departments__create">
   <h1>Department updated</h1>
-  <form *ngIf="department; else ngNotFound" class="create__form col-6" action="">
+  <form *ngIf="department; else ngNotFound" class="create__form col-12 col-sm-6" action="">
     <label for="department-name">Name</label>
     <input class="form-control" [(ngModel)]="name" name="name" id="department-name" type="text"
       placeholder="Enter department name">

@@ -1,12 +1,12 @@
 <div class="departments">
   <h1>Departments</h1>
-  <a [routerLink]="['departments/create']"><button type="button" class="btn btn-success">Create</button></a>
+  <a [routerLink]="['departments/create']"><button type="button" class="btn-create btn btn-success">Create</button></a>
   <app-loader *ngIf="isLoading$ | async; else content"></app-loader>
 
 </div>
 
 <ng-template #content>
-  <table class="departments__table table table-hover">
+  <table class="departments__table table table-hover table-responsive-sm">
     <thead>
       <tr>
         <th scope="col">№</th>

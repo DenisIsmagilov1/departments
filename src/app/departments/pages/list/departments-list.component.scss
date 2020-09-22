@@ -1,10 +1,20 @@
-.departments {
+h1 {
+  margin: 30px 0 0 0 ;
+  text-align: center;
 
-  h1 {
-    text-align: center;
+  @media(max-width: 767px) {
+      font-size: 32px;
   }
+}
+
+.departments {
 
   &__table {
     margin: 20px 0 0 0;
   }
+
+  .btn-create {
+    margin: 20px 0 0 0;
+  }
+
 }

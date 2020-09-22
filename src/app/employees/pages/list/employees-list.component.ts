@@ -3,9 +3,9 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import * as departmentActions from 'src/app/reducers/departmens/departments.actions';
+import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 import { Department } from 'src/app/reducers/departmens/departments.reducer';
 import { selectDepartments } from 'src/app/reducers/departmens/departments.selectors';
-import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 
 import { Employee } from '../../../reducers/employees/employees.reducer';
 import { selectEmployees, selectEmployeesLoading } from '../../../reducers/employees/employees.selectors';

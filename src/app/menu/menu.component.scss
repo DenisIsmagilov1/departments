@@ -2,15 +2,96 @@ ul {
   padding: 0;
   margin: 0;
 }
+.left-menu {
+  position: fixed;
+  width: 180px;
+  height: 100%;
+  background-color: #7b8a8b;
+  z-index: 2;
+  transition: all 0.6s;
+
+  @media(max-width: 767px) {
+    transform: translateX(-100%);
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
+
 
 .menu {
   height: 100%;
   //position: fixed;
+
+  &__burger {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 25px;
+    margin: 20px;
+    cursor: pointer;
+
+    &::before, &::after, span{
+      content: '';
+      position: absolute;
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: #000;
+    }
+
+    span {
+      top: 12.5px
+    }
+
+    &::after {
+      top: 25px
+    }
+  }
+
+  &__close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    display: none;
+
+    @media(max-width: 767px) {
+      display: block;
+    }
+
+    &:hover {
+      &::before, &::after {
+        background-color: #000;
+      }  
+    }
+    
+    &::before, &::after{
+      content: '';
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: #fff;
+    }
+
+    &::before {
+      transform: rotate(45deg) translateY(1px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateY(-1px);
+    }
+  }
 }
 
 .nav{
   margin: 0 0 0 5%;
-  transform: translateY(-180px);
 
   &__link {
     font-size: 20px;

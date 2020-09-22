@@ -10,9 +10,9 @@
 .content {
   // background-color: #dae5ea;
   padding: 20px;
-}
+  margin: 0 0 0 180px;
 
-.left-menu {
-  position: relative;
-  background-color: #7b8a8b;
+  @media(max-width: 767px) {
+    margin: 0;
+  }
 }

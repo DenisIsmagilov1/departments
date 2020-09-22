@@ -1,6 +1,6 @@
 <div class="employees__create">
   <h1>Employee update</h1>
-  <form *ngIf="employee; else ngNotFound" class="create__form col-6" action="">
+  <form *ngIf="employee; else ngNotFound" class="create__form col-12 col-sm-6" action="">
     <label for="employees-name">First name</label>
     <input class="form-control" [(ngModel)]="firstName" name="firstName" id="employees-name" type="text"
       placeholder="Enter first name">
