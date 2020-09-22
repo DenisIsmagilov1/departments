@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppEffects } from './app.effects';
 import { HttpService } from './http.service';
 import { EmployeeCardComponent } from './employees/employee.card/employee.card.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EmployeeCardComponent } from './employees/employee.card/employee.card.c
     EmployeesCreateComponent,
     DepartmentsUpdateComponent,
     EmployeesUpdateComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
