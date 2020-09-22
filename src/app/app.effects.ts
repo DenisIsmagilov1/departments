@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Effect, ofType, Actions } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import * as departmentActions from './reducers/departmens/departments.actions';
 import * as employeeActions from './reducers/employees/employees.actions';
+import * as errorsActions from './reducers/errors/errors.actions';
 
 @Injectable()
 export class AppEffects {
@@ -18,7 +20,8 @@ export class AppEffects {
           .pipe(
             map(data => new departmentActions.GetDepartmentsSuccess({
               departments: data
-            }))
+            }),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );
@@ -31,7 +34,8 @@ export class AppEffects {
       switchMap((action) => {
         return this.http.createDepartment(action.payload)
           .pipe(
-            map((res) => new departmentActions.CreateDepartmentSuccess(res.data))
+            map((res) => new departmentActions.CreateDepartmentSuccess(res.data)),
+            catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText })))
           );
       })
     );
@@ -44,7 +48,8 @@ export class AppEffects {
       switchMap((action) => {
         return this.http.deleteDepartment(action.payload.departmentId)
           .pipe(
-            map(() => new departmentActions.DeleteDepartmentSuccess(action.payload))
+            map(() => new departmentActions.DeleteDepartmentSuccess(action.payload),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );
@@ -57,7 +62,8 @@ export class AppEffects {
       switchMap((action) => {
         return this.http.updateDepartment(action.payload)
           .pipe(
-            map(() => new departmentActions.UpdateDepartmentSuccess(action.payload))
+            map(() => new departmentActions.UpdateDepartmentSuccess(action.payload),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );
@@ -72,7 +78,8 @@ export class AppEffects {
           .pipe(
             map(data => new employeeActions.GetEmployeesSuccess({
               employees: data
-            }))
+            }),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );
@@ -85,7 +92,8 @@ export class AppEffects {
       switchMap((action) => {
         return this.http.createEmployee(action.payload)
           .pipe(
-            map((res) => new employeeActions.CreateEmployeeSuccess(res.data))
+            map((res) => new employeeActions.CreateEmployeeSuccess(res.data),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );
@@ -98,7 +106,8 @@ export class AppEffects {
       switchMap((action) => {
         return this.http.deleteEmployee(action.payload.employeeId)
           .pipe(
-            map(() => new employeeActions.DeleteEmployeeSuccess(action.payload))
+            map(() => new employeeActions.DeleteEmployeeSuccess(action.payload),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );
@@ -111,7 +120,8 @@ export class AppEffects {
       switchMap((action) => {
         return this.http.updateEmployee(action.payload)
           .pipe(
-            map(() => new employeeActions.UpdateEmployeeSuccess(action.payload))
+            map(() => new employeeActions.UpdateEmployeeSuccess(action.payload),
+              catchError(error => of(new errorsActions.SetErrorAction({ message: error.statusText }))))
           );
       })
     );

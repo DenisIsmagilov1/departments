@@ -1,0 +1,49 @@
+.error-note {
+  display: none;
+  width: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px 30px 10px 10px;
+  margin: 20px;
+  background-color: #f25640;
+  color: #fff;
+  opacity: 0.9;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+  &.active {
+    display: block;
+  }
+
+  &__close {
+    display: block;
+    position: absolute;
+    top: 10xp;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+
+    &:hover {
+      &::before, &::after {
+        background-color: #000;
+      }  
+    }
+    
+    &::before, &::after{
+      content: '';
+      display: block;
+      width: 15px;
+      height: 2px;
+      background-color: #fff;
+    }
+
+    &::before {
+      transform: rotate(45deg) translateY(1px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateY(-1px);
+    }
+  }
+}

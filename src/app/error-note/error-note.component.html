@@ -1,0 +1,6 @@
+<div class="error-note" [class.active]="message$ | async">
+  <span class="error-note__close" (click)="resetError()"></span>
+  <p>
+    {{message$ | async}}
+  </p>
+</div>

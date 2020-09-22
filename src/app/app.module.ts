@@ -24,6 +24,7 @@ import { AppEffects } from './app.effects';
 import { HttpService } from './http.service';
 import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
 import { LoaderComponent } from './loader/loader.component';
+import { ErrorNoteComponent } from './error-note/error-note.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LoaderComponent } from './loader/loader.component';
     DepartmentsUpdateComponent,
     EmployeesUpdateComponent,
     EmployeeCardComponent,
-    LoaderComponent
+    LoaderComponent,
+    ErrorNoteComponent
   ],
   imports: [
     BrowserModule,
