@@ -7,7 +7,6 @@
     <label for="employees-name">Last name</label>
     <input class="form-control" [(ngModel)]="lastName" name="lastName" id="employees-name" type="text"
       placeholder="Enter last name">
-    {{departmentId}}
     <select class="form-control" [(ngModel)]="departmentId" name="departmentId">
       <option *ngFor="let department of departments$ | async" [value]="department.id">{{department.name}}</option>
     </select>
