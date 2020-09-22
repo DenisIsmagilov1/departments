@@ -8,21 +8,21 @@ import { selectDepartments } from 'src/app/reducers/departmens/departments.selec
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/reducers/departmens/departments.reducer';
 import { selectEmployees } from 'src/app/reducers/employees/employees.selectors';
-import { Employees } from 'src/app/reducers/employees/employees.reducer';
+import { Employee } from 'src/app/reducers/employees/employees.reducer';
 
 @Component({
-  selector: 'app-employeesupdate',
-  templateUrl: './employees.update.component.html',
-  styleUrls: ['./employees.update.component.scss']
+  selector: 'app-employees-update',
+  templateUrl: './employees-update.component.html',
+  styleUrls: ['./employees-update.component.scss']
 })
 export class EmployeesUpdateComponent implements OnInit {
   public id: number;
   public firstName: string;
   public lastName: string;
   public departmentId: number;
-  public departments: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
-  public employees: Observable<Employees[]> = this.store$.pipe(select(selectEmployees));
-  public employee: Employees;
+  public employee: Employee;
+  public departments$: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
+  public employees$: Observable<Employee[]> = this.store$.pipe(select(selectEmployees));
 
   constructor(private store$: Store, private router: Router, private route: ActivatedRoute) { }
 
@@ -32,7 +32,7 @@ export class EmployeesUpdateComponent implements OnInit {
     )
       .subscribe(id => this.id = +id);
 
-    this.employees.subscribe(res => {
+    this.employees$.subscribe(res => {
       this.employee = res[res.findIndex(item => item.id === this.id)];
 
       if (this.employee) {

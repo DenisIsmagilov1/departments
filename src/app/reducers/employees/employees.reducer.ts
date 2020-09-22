@@ -2,7 +2,7 @@ import { types } from './employees.actions';
 
 export const employeesNode = 'employees';
 
-export interface Employees {
+export interface Employee {
   id: number;
   firstName: string;
   lastName: string;
@@ -13,7 +13,7 @@ export interface EmployeesState {
   loading: boolean;
   error: object;
   data: {
-    employees: Employees[]
+    employees: Employee[]
   };
 }
 

@@ -9,7 +9,7 @@
       placeholder="Enter last name">
     {{departmentId}}
     <select class="form-control" [(ngModel)]="departmentId" name="departmentId">
-      <option *ngFor="let department of departments | async" [value]="department.id">{{department.name}}</option>
+      <option *ngFor="let department of departments$ | async" [value]="department.id">{{department.name}}</option>
     </select>
     <input class="btn btn-primary" (click)="createEmployee()" type="submit" value="Create">
   </form>

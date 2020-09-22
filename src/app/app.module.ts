@@ -8,21 +8,21 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { DepartmentsComponent } from './departments/pages/list/departments.list.component';
-import { DepartmentsDetailComponent } from './departments/pages/detail/departments.detail.component';
-import { DepartmentCreateComponent } from './departments/pages/create/department.create.component';
-import { DepartmentsUpdateComponent } from './departments/pages/update/departments.update.component';
-import { EmployeesComponent } from './employees/pages/list/employees.list.component';
-import { EmployeesCreateComponent } from './employees/pages/create/employees.create.component';
-import { EmployeesDetailComponent } from './employees/pages/detail/employees.detail.component';
-import { EmployeesUpdateComponent } from './employees/pages/update/employees.update.component';
+import { DepartmentsComponent } from './departments/pages/list/departments-list.component';
+import { DepartmentsDetailComponent } from './departments/pages/detail/departments-detail.component';
+import { DepartmentCreateComponent } from './departments/pages/create/department-create.component';
+import { DepartmentsUpdateComponent } from './departments/pages/update/departments-update.component';
+import { EmployeesComponent } from './employees/pages/list/employees-list.component';
+import { EmployeesCreateComponent } from './employees/pages/create/employees-create.component';
+import { EmployeesDetailComponent } from './employees/pages/detail/employees-detail.component';
+import { EmployeesUpdateComponent } from './employees/pages/update/employees-update.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { reducers, metaReducers } from './reducers';
 import { HttpClientModule } from '@angular/common/http';
 import { AppEffects } from './app.effects';
 import { HttpService } from './http.service';
-import { EmployeeCardComponent } from './employees/employee.card/employee.card.component';
+import { EmployeeCardComponent } from './employees/employee-card/employee-card.component';
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({

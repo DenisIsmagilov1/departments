@@ -7,8 +7,8 @@ import { selectDepartments, selectDepartmentsLoading } from '../../../reducers/d
 
 @Component({
   selector: 'app-departments',
-  templateUrl: './departments.list.component.html',
-  styleUrls: ['./departments.list.component.scss'],
+  templateUrl: './departments-list.component.html',
+  styleUrls: ['./departments-list.component.scss'],
 })
 export class DepartmentsComponent implements OnInit {
   constructor(private store$: Store<DepartmentsState>) { }

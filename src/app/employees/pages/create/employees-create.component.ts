@@ -8,15 +8,15 @@ import { selectDepartments } from 'src/app/reducers/departmens/departments.selec
 import * as employeeActions from 'src/app/reducers/employees/employees.actions';
 
 @Component({
-  selector: 'app-employeescreate',
-  templateUrl: './employees.create.component.html',
-  styleUrls: ['./employees.create.component.scss']
+  selector: 'app-employees-create',
+  templateUrl: './employees-create.component.html',
+  styleUrls: ['./employees-create.component.scss']
 })
 export class EmployeesCreateComponent implements OnInit {
   public firstName: string;
   public lastName: string;
   public departmentId: number;
-  public departments: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
+  public departments$: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
   constructor(private store$: Store<DepartmentsState>, private router: Router) { }
 
   ngOnInit() {

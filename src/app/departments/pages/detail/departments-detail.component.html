@@ -1,0 +1,15 @@
+<div class="departments__detail">
+  <h1>Detail</h1>
+  <div *ngIf="department; else ngNotFound">
+    <h2>{{department.name}}</h2>
+    <p>{{department.description}}</p>
+    <div role="group" aria-label="Basic example" style="max-width: 20rem;">
+      <a [routerLink]="['/departments/update', department.id]"><button type="button"
+          class="btn btn-warning">Update</button></a>
+      <button (click)="deleteDepartment(id)" type="button" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+  <ng-template #ngNotFound>
+    <p>Department with id = {{id}} not found!</p>
+  </ng-template>
+</div>

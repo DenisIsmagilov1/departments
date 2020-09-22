@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import * as departmentAction from 'src/app/reducers/departmens/departments.actions';
 
 @Component({
-  selector: 'app-departmentcreate',
-  templateUrl: './department.create.component.html',
-  styleUrls: ['./department.create.component.scss']
+  selector: 'app-department-create',
+  templateUrl: './department-create.component.html',
+  styleUrls: ['./department-create.component.scss']
 })
 export class DepartmentCreateComponent {
   public name: string;
