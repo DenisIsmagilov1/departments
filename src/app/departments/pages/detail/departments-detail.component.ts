@@ -26,7 +26,7 @@ export class DepartmentsDetailComponent implements OnInit {
   public departments$: Observable<Department[]> = this.store$.pipe(select(selectDepartments));
 
   ngOnInit(): void {
-
+    this.store$.dispatch(new departmentActions.GetDepartments());
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => params.getAll('id'))
     )

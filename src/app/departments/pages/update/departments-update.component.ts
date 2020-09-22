@@ -26,6 +26,7 @@ export class DepartmentsUpdateComponent implements OnInit {
     private route$: ActivatedRoute) { }
 
   ngOnInit() {
+    this.store$.dispatch(new departmentActions.GetDepartments());
     this.route$.paramMap.pipe(
       switchMap((params: ParamMap) => params.getAll('id'))
     )

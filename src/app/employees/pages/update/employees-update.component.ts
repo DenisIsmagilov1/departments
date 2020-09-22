@@ -27,6 +27,7 @@ export class EmployeesUpdateComponent implements OnInit {
   constructor(private store$: Store, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.store$.dispatch(new employeeActions.GetEmployees());
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => params.getAll('id'))
     )

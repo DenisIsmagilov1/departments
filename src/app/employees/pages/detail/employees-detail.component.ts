@@ -26,7 +26,7 @@ export class EmployeesDetailComponent implements OnInit {
   public employees$: Observable<Employee[]> = this.store$.pipe(select(selectEmployees));
 
   ngOnInit(): void {
-
+    this.store$.dispatch(new employeeActions.GetEmployees());
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => params.getAll('id'))
     )
